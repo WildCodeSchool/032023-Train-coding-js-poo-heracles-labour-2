@@ -4,12 +4,14 @@ const Weapon = require("./src/Weapon.js");
 
 const sword = new Weapon("Excalibur ⚔️", 10);
 const shield = new Shield("Shield 🛡️", 10);
+const sword1 = new Weapon("",0);
+const shield1 = new Shield("",0)
 
 /** Create Heracles  */
 const heracles = new Fighter("🧔 Heracles", 20, 6, sword, shield);
 
 /** Create the opponent  */
-const boar = new Fighter("🐗 Erymanthian Boar", 25, 12);
+const boar = new Fighter("🐗 Erymanthian Boar", 25, 12,sword1,shield1);
 
 /**
  * Helper to produce the result of a round
