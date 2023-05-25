@@ -29,7 +29,7 @@ class Fighter {
 
     getDamage() {
         if (this.weapon === null) {
-            return this.strength;
+            return this.getRandomInt(this.strength);
         } else {
             return this.getRandomInt(this.weapon.damage + this.strength);
         }
