@@ -1,3 +1,4 @@
+
 const MAX_LIFE = 100;
 
 class Fighter {
@@ -5,27 +6,44 @@ class Fighter {
         this.name = name;
         this.strength = strength;
         this.dexterity = dexterity;
+        this.weapon = null;
+        this.shield = null;
         this.life = MAX_LIFE;
     }
 
-
-    // Launch a fight
     fight(defender) {
-        const attackPoints = this.getRandomInt(this.strength);
+        const attackPoints = this.getDamage();
 
-        const damages = Math.max(attackPoints - defender.dexterity, 0);
+        const damages = Math.max(attackPoints - (defender.dexterity + defender.getDefense(defender)), 0);
 
         defender.life = Math.max(defender.life - damages, 0);
     }
 
+    equipWeapon(Weapon) {
+        this.weapon = Weapon;}
+    equipShield(Shield) {
+        this.shield = Shield;}
 
-    // Generate a random value between 1 and max
+
+    getDamage() {
+        if (this.weapon === null) {
+        return this.strength;
+    }else {return this.getRandomInt(this.weapon.damage + this.strength);
+    }
+    }
+
+    getDefense(defender) {
+        if (defender.shield === null) {
+            return 0;
+        } else {
+            return defender.shield.defense
+        }
+    }
+
     getRandomInt(max) {
         return 1 + Math.floor(Math.random() * max);
     }
 
-
-    // Determine if a fighter is still alive
     isAlive() {
         return this.life > 0;
     }
