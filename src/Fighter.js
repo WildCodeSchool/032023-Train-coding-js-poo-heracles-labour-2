@@ -1,19 +1,31 @@
 const MAX_LIFE = 100;
 
 class Fighter {
-    constructor(name, strength, dexterity) {
+    constructor(name, strength, dexterity, weapon = null, shield =null) {
         this.name = name;
         this.strength = strength;
         this.dexterity = dexterity;
         this.life = MAX_LIFE;
+        this.weapon = weapon;
+        this.shield = shield;
     }
 
+    getDamage() {
+        return this.weapon ? this.strength + this.weapon.damage : this.strength ;
+    }
+
+    getDefense() {
+        return this.shield ? this.dexterity + this.shield.protection : this.dexterity;
+    }
 
     // Launch a fight
     fight(defender) {
-        const attackPoints = this.getRandomInt(this.strength);
 
-        const damages = Math.max(attackPoints - defender.dexterity, 0);
+   
+
+        const attackPoints = this.getRandomInt(this.getDamage());
+
+        const damages = Math.max(attackPoints - this.getDefense(), 0);
 
         defender.life = Math.max(defender.life - damages, 0);
     }

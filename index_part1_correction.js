@@ -1,10 +1,28 @@
 const Fighter = require("./src/Fighter.js");
+const Weapon = require("./src/Fighter.js");
+const Shield = require("./src/Fighter.js");
+
+/** Create the weapon */
+const sword = new Weapon("⚔️ Sword");
+
+const shield = new Shield("🛡️ Shield");
 
 /** Create Heracles  */
 const heracles = new Fighter("🧔 Heracles", 20, 6);
 
 /** Create the opponent  */
 const nemean = new Fighter("🦁 The Nemean Lion", 11, 13);
+
+/** Create Heracles  */
+
+/** Equip Heracles with the sword */
+
+heracles.weapon = sword;
+
+/** Equip the boar with the shield */
+
+nemean.shield = shield;
+
 
 /**
  * Helper to produce the result of a round
