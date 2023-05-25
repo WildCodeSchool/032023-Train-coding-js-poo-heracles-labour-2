@@ -20,16 +20,19 @@ class Fighter {
     }
 
     equipWeapon(Weapon) {
-        this.weapon = Weapon;}
+        this.weapon = Weapon;
+    }
     equipShield(Shield) {
-        this.shield = Shield;}
+        this.shield = Shield;
+    }
 
 
     getDamage() {
         if (this.weapon === null) {
-        return this.strength;
-    }else {return this.getRandomInt(this.weapon.damage + this.strength);
-    }
+            return this.strength;
+        } else {
+            return this.getRandomInt(this.weapon.damage + this.strength);
+        }
     }
 
     getDefense(defender) {
